@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { CREATE_USER } from './mutations/User';
+import { CREATE_USER, DELETE_USER } from './mutations/User';
 import { GET_ALL_USERS } from './queries/User';
 
 const RootQuery = new GraphQLObjectType({
@@ -13,6 +13,7 @@ const RootMutation = new GraphQLObjectType({
   name: 'RootMutation',
   fields: () => ({
     createUser: CREATE_USER,
+    deleteUser: DELETE_USER,
   }),
 });
 
