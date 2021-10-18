@@ -4,6 +4,7 @@ import { graphqlHTTP } from 'express-graphql';
 import { createConnection } from 'typeorm';
 import { mySqlConfig } from './config/database';
 import { schema } from './graphql';
+import { Users } from './entities/Users';
 
 const main = async () => {
   await createConnection({
@@ -12,8 +13,8 @@ const main = async () => {
     username: mySqlConfig.username,
     password: mySqlConfig.password,
     logging: true,
-    synchronize: true,
-    entities: [],
+    synchronize: false,
+    entities: [Users],
   });
 
   const app = express();
