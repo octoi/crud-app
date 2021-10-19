@@ -44,12 +44,14 @@ export const UPDATE_PASSWORD = {
 };
 
 export const DELETE_USER = {
-  type: UserType,
+  type: MessageType,
   args: {
     id: { type: GraphQLID },
   },
   async resolve(parent: any, args: any) {
     const id = args.id;
     await Users.delete(id);
+
+    return { successful: true, message: "DELETE WORKED" };
   },
 };
